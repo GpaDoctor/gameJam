@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8b50988b6525fa64bbcf274a5b803401
+timeCreated: 1487270460
+licenseType: Store
+TextScriptImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 81417
+  packageName: Modern Furniture Pieces Pack
+  packageVersion: 1.0
+  assetPath: Assets/Modern Furniture/Demo Build/Demo_Data/Mono/etc/mono/mconfig/config.xml
+  uploadId: 163621
