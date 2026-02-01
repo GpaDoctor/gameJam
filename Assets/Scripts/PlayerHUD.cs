@@ -9,6 +9,8 @@ public class PlayerHUD : MonoBehaviour
     public Slider healthSlider;       // drag the Slider here
     public float maxHealth = 100f;
     private float currentHealth;
+    private playerStatus playerStatus;
+    private bool levelFailed = false;
 
     [Header("Timer")]
     public TextMeshProUGUI timerText; // drag the TMP text here (or use UnityEngine.UI.Text)
@@ -24,6 +26,12 @@ public class PlayerHUD : MonoBehaviour
         debugDamageAction = new InputAction("DebugDamage", binding: "<Keyboard>/q");
         debugDamageAction.performed += ctx => TakeDamage(25f);
     }
+
+    void Start()
+    {
+        // Find the player status script
+        playerStatus = FindObjectOfType<playerStatus>();
+    }
     void OnEnable()
     {
         debugDamageAction?.Enable();
@@ -36,6 +44,20 @@ public class PlayerHUD : MonoBehaviour
 
     void Update()
     {
+        // Sync health from playerStatus
+        if (playerStatus != null)
+        {
+            currentHealth = (float)playerStatus.hp;
+            UpdateHealthUI();
+
+            // Check if player has died
+            if (currentHealth <= 0 && !levelFailed)
+            {
+                levelFailed = true;
+                Debug.Log("Player died! Level failed.");
+            }
+        }
+
         // Simple timer counting up (you can change to countdown)
         gameTime += Time.deltaTime;
         UpdateTimerUI();
@@ -87,5 +109,24 @@ public class PlayerHUD : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(newHealth, 0, maxHealth);
         UpdateHealthUI();
+    }
+
+    private void OnGUI()
+    {
+        if (levelFailed)
+        {
+            // Draw black background
+            GUI.backgroundColor = Color.black;
+            GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "");
+
+            // Draw "Level Failed" text
+            GUI.backgroundColor = Color.black;
+            GUI.contentColor = Color.red;
+            GUIStyle largeStyle = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontSize = 60 };
+            GUI.Label(new Rect(0, Screen.height / 2 - 100, Screen.width, 200), "YOU HAVE FAILED THIS LEVEL", largeStyle);
+
+            // Reset content color
+            GUI.contentColor = Color.white;
+        }
     }
 }

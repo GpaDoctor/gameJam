@@ -9,7 +9,7 @@ public class unlockDoor : MonoBehaviour
     private maskCheck alarmScript;
     public float holdDuration = 5f; // Duration in seconds that E must be held
     private float holdTimer = 0f;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     private bool levelPassed = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -28,9 +28,10 @@ public class maskCheck : MonoBehaviour
     {
         if (player != null)
         {
-            if (player.maskColour == passingColour && alarmActive == false)
+            if (player.maskColour == passingColour && player.hasMask == true)
             {
                 alarmActive = false;
+                audioSource.mute = true;
             }
             else
             {

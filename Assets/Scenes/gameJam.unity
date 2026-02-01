@@ -1167,6 +1167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   parentToDeactivate: {fileID: 4317996531758536861}
   holdDuration: 5
+  audioSource: {fileID: 8824816685118365975}
 --- !u!65 &511506442
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5239,9 +5240,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1762682266}
-    - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1762682267}
   m_SourcePrefab: {fileID: 100100000, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
 --- !u!114 &1762682259 stripped
 MonoBehaviour:
@@ -5281,14 +5279,7 @@ MonoBehaviour:
   maskColour: {r: 0, g: 0, b: 0, a: 0}
   hp: 100
   maskObject: {fileID: 1321022967}
---- !u!81 &1762682267
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424570671}
-  m_Enabled: 1
+  colorChangeTransform: {fileID: 1321022968}
 --- !u!1 &1764214107
 GameObject:
   m_ObjectHideFlags: 0
@@ -6935,7 +6926,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 9c4d3eeec9e47da4a92ec49de95e2e56, type: 3}
+  m_Resource: {fileID: 8300000, guid: 699a9ad14d5794646a4cc96ed9584fbe, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
